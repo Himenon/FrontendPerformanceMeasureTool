@@ -2,18 +2,22 @@
   "name": "frontend-performance-tool",
   "version": "0.1.7",
   "description": "Frontend Performance Tool",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "lib/main.js",
+  "types": "lib/main.d.ts",
+  "bin": {
+    "fperf": "./lib/cli.js"
+  },
   "scripts": {
     "commitlint": "commitlint",
     "commitmsg": "commitlint -e $GIT_PARAMS",
-    "app": "ts-node ./src/index.ts",
+    "app": "ts-node ./src/main.ts",
     "start": "npm run build:watch",
     "test": "npm run cruiser && npm run test:jest",
     "test:watch": "npm run test:jest -- --watch",
     "test:jest": "jest -c ./jest.config.json",
     "server": "node ./lib/server.js",
     "cli": "node ./lib/cli.js",
+    "cli:sample": "node ./lib/cli.js --interval 1 --end 3 --output ./output/sample.json",
     "cruiser": "dependency-cruiser --validate .dependency-cruiser.json src",
     "build": "tsc -p ./tsconfig.json",
     "build:watch": "npm run clean && npm run build -- --watch",
@@ -42,7 +46,9 @@
   },
   "homepage": "https://github.com/Himenon/frontend-performance-tool#readme",
   "devDependencies": {
+    "@types/chalk": "^2.2.0",
     "@types/jest": "^23.3.1",
+    "@types/meow": "^4.0.1",
     "@types/node": "^10.7.1",
     "@types/puppeteer": "^1.6.1",
     "dependency-cruiser": "^4.5.0",
@@ -60,6 +66,8 @@
     "typescript": "^3.0.1"
   },
   "dependencies": {
+    "chalk": "^2.4.1",
+    "meow": "^5.0.0",
     "puppeteer": "^1.7.0"
   }
 }
