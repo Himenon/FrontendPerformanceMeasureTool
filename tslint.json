@@ -1,13 +1,11 @@
 {
   "extends": [
     "tslint:latest",
-    "tslint-react",
     "tslint-plugin-prettier",
     "tslint-config-prettier"
   ],
   "linterOptions": {
     "exclude": [
-      "config/**/*.js",
       "node_modules/**/*.ts"
     ]
   },
@@ -18,7 +16,6 @@
     "curly": true,
     "class-name": true,
     "triple-equals": true,
-    "indent": [true, "spaces", 2],
     "max-line-length": [true, 120],
     "no-arg": true,
     "no-bitwise": true,
@@ -26,7 +23,6 @@
     "no-consecutive-blank-lines": false,
     "no-require-imports": false,
     "no-var-requires": false,
-    "semicolon": [false, "always"],
     "no-console": [false, "log", "debug", "info", "error"],
     "no-implicit-dependencies": [false, "optional"],
     "interface-name": [true, "never-prefix"],
@@ -38,8 +34,8 @@
     ],
     "prettier": [true, {
       "useTabs": false,
-      "printWidth": 180,
-      "tabWidth": 4,
+      "printWidth": 120,
+      "tabWidth": 2,
       "singleQuote": true,
       "trailingComma": "all",
       "jsxBracketSameLine": false,

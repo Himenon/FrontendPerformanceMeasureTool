@@ -14,12 +14,15 @@
       "placeOpenBraceOnNewLineForControlBlocks": false
     },
     "compilerOptions": {
-      "target": "es5",
       "module": "commonjs",
-      "lib": ["es6", "dom", "es2018"],
+      "target": "esnext",
+      "lib": [
+        "es6",
+        "dom",
+        "esnext"
+      ],
       "allowJs": false,
       "checkJs": false,
-      "jsx": "react",
       "outDir": "lib",
       "declaration": true,
       "declarationMap": false,
