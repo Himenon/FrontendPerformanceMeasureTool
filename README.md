@@ -13,3 +13,11 @@ $ yarn run cli:sample
 ```
 
 Output: ./output/sample.json
+
+## Analysis
+
+```
+$ cd sample
+$ pip3 install -r requirements.txt
+$ jupyter lab
+```

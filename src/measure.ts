@@ -7,8 +7,20 @@ export class Measure {
   private browser: Browser | null = null
   private page: Page | null = null
   private intervalTimer: NodeJS.Timer | null = null
-  private cacheData: SamplingData = { sampling: [] }
-  constructor(private params: MainArgs) {}
+  private cacheData: SamplingData
+  constructor(private params: MainArgs) {
+    const message = `
+      Url         : ${params.url}
+      Interval    : ${params.interval} sec.
+      EndTime     : after ${params.end} sec.
+      Output Path : ${params.output}
+    `
+    this.cacheData = {
+      meta: params,
+      sampling: [],
+    }
+    console.log(message)
+  }
 
   public prepare = async () => {
     this.browser = await launch()

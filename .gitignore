@@ -5,3 +5,7 @@ node_modules
 package-lock.json
 *.log
 output/*
+
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+.vscode

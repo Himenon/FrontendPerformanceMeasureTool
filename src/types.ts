@@ -6,5 +6,6 @@ export interface MainArgs {
 }
 
 export interface SamplingData {
+  meta: MainArgs
   sampling: any[]
 }
