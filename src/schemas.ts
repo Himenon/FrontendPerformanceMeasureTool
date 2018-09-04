@@ -20,5 +20,10 @@ export const flagSchemas: meow.Options = {
       type: 'string',
       alias: 'o',
     },
+    prepareScript: {
+      type: 'string',
+      alias: 'p',
+      default: undefined,
+    },
   },
 }

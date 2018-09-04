@@ -1,19 +1,18 @@
 import { writeFile } from 'fs'
-import { Browser, launch, Page } from 'puppeteer'
-import { MainArgs, SamplingData } from './types'
+import { Browser, Page } from 'puppeteer'
+import { MainArgs, PrepareScript, SamplingData } from './types'
 
 export class Measure {
   private running: boolean = false
-  private browser: Browser | null = null
-  private page: Page | null = null
   private intervalTimer: NodeJS.Timer | null = null
   private cacheData: SamplingData
-  constructor(private params: MainArgs) {
+  constructor(private params: MainArgs, private browser: Browser, private page: Page) {
     const message = `
       Url         : ${params.url}
       Interval    : ${params.interval} sec.
       EndTime     : after ${params.end} sec.
       Output Path : ${params.output}
+      Prepare Script: ${params.prepareScriptPath}
     `
     this.cacheData = {
       meta: params,
@@ -22,13 +21,16 @@ export class Measure {
     console.log(message)
   }
 
-  public prepare = async () => {
-    this.browser = await launch()
-    this.page = await this.browser.newPage()
-    await this.page.goto(this.params.url)
+  public prepare = async (prepareScript: PrepareScript | null): Promise<void> => {
+    if (prepareScript) {
+      await prepareScript(this.page)
+    } else {
+      await this.page.goto(this.params.url)
+    }
+    return Promise.resolve()
   }
 
-  public start = () => {
+  public start = async (): Promise<void> => {
     this.running = true
     this.intervalTimer = setInterval(async () => {
       if (this.running && this.page) {
@@ -36,6 +38,7 @@ export class Measure {
         this.cacheData.sampling.push(data)
       }
     }, this.params.interval * 1000)
+    return Promise.resolve()
   }
 
   public end = () => {

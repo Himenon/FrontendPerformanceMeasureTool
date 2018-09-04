@@ -18,11 +18,13 @@ export const cliMain = () => {
   const output = cli.flags.output
   const end = parseInt(cli.flags.end, 10)
   const url = cli.flags.url
+  const prepareScriptPath = cli.flags.prepareScript
   const args: MainArgs = {
     url,
     interval,
     output,
     end,
+    prepareScriptPath,
   }
   main(args)
 }
