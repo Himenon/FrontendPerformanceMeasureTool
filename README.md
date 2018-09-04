@@ -7,7 +7,7 @@ $ yarn run build
 
 ## Sample
 
-```
+```sh
 $ mkdir output
 $ yarn run cli:sample
 ```
@@ -54,5 +54,16 @@ $ node ./lib/cli.js \
 --prepareScript ./sample/login.js \
 --loopScript ./sample/loop.js \
 --endScript ./sample/end.js \
---interval 1 --end 10 --output ./output/sample.json
+--interval 1 --end 10 --output ./output/sample.json \
+--noHeadless \
+--executablePath '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary'
+```
+
+## Puppeteer Options Samlpe
+
+```js
+{
+   headless: false,
+   executablePath: '/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary',
+}
 ```

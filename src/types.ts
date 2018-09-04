@@ -1,4 +1,4 @@
-import { Page } from 'puppeteer'
+import { LaunchOptions, Page } from 'puppeteer'
 
 export interface MainArgs {
   url: string
@@ -9,6 +9,8 @@ export interface MainArgs {
   loopScriptPath?: string
   endScriptPath?: string
 }
+
+export type PuppeteerOptions = LaunchOptions
 
 export interface SamplingData {
   meta: MainArgs

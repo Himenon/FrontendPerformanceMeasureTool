@@ -32,5 +32,13 @@ export const flagSchemas: meow.Options = {
       type: 'string',
       default: undefined,
     },
+    noHeadless: {
+      type: 'boolean',
+      default: false,
+    },
+    executablePath: {
+      type: 'string',
+      default: undefined,
+    },
   },
 }
