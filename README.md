@@ -49,6 +49,10 @@ Debugging
 
 
 ```sh
-$ tsc ./sample/login.ts --lib es2018,dom --module commonjs
-$ node ./lib/cli.js --prepareScript ./sample/login.js --interval 1 --end 10 --output ./output/sample.json
+$ tsc ./sample/*.ts --lib es2018,dom --module commonjs
+$ node ./lib/cli.js \
+--prepareScript ./sample/login.js \
+--loopScript ./sample/loop.js \
+--endScript ./sample/end.js \
+--interval 1 --end 10 --output ./output/sample.json
 ```

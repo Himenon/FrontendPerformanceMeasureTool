@@ -22,7 +22,14 @@ export const flagSchemas: meow.Options = {
     },
     prepareScript: {
       type: 'string',
-      alias: 'p',
+      default: undefined,
+    },
+    loopScript: {
+      type: 'string',
+      default: undefined,
+    },
+    endScript: {
+      type: 'string',
       default: undefined,
     },
   },

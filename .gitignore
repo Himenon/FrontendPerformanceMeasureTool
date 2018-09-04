@@ -10,4 +10,4 @@ output/*
 */.ipynb_checkpoints/*
 .vscode
 .env*
-./sample/*.js
+**/*.js

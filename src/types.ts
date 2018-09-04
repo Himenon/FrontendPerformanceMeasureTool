@@ -6,6 +6,8 @@ export interface MainArgs {
   interval: number
   output: string
   prepareScriptPath?: string
+  loopScriptPath?: string
+  endScriptPath?: string
 }
 
 export interface SamplingData {
@@ -13,4 +15,4 @@ export interface SamplingData {
   sampling: any[]
 }
 
-export type PrepareScript = (page: Page) => {}
+export type InjectScript = (page: Page) => {}
